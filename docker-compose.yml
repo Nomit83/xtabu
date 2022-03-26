@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  # =================DJANGO=SERVICE======================
+    xtabu-be:
+        build:
+            context: xtabu-be
+            dockerfile: Dockerfile
+        container_name: backend
+        # depends_on:
+        #     postgres:
+        #         condition: service_healthy
+        env_file:
+            - .env
+        ports:
+            - "8000:8000" # webserver 
+        user: ${USER_PYTHON}
+        volumes:
+            - ./xtabu-be:${DIR_PYTHON}
+            - media_volume:${DIR_PYTHON}/media
+            - static_volume:${DIR_PYTHON}/staticfiles
+
+# =========VOLUMES============
+volumes:
+    static_volume: null
+    media_volume: null

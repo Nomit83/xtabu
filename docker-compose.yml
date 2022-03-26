@@ -20,6 +20,25 @@ services:
             - media_volume:${DIR_PYTHON}/media
             - static_volume:${DIR_PYTHON}/staticfiles
 
+  # =================DJANGO=SERVICE======================
+
+    xtabu-fe:
+        build:
+            context: xtabu-fe
+            dockerfile: Dockerfile
+        command: npm dev
+        container_name: frontend
+        depends_on:
+            - xtabu-be
+        env_file:
+            - .env
+        ports:
+            - "3000:3000"
+        user: ${USER_NODE}
+        volumes:
+            - ./xtabu-fe:${DIR_NODE}
+            - '${DIR_NODE}/node_modules'
+
 # =========VOLUMES============
 volumes:
     static_volume: null

@@ -1,0 +1,8 @@
+[submodule "xtabu-be"]
+	path = xtabu-be
+	url = https://github.com/Nomit83/xtabu-be.git
+	branch = master
+[submodule "xtabu-fe"]
+	path = xtabu-fe
+	url = https://github.com/Nomit83/xtabu-fe.git
+	branch = master

@@ -26,7 +26,7 @@ services:
         build:
             context: xtabu-fe
             dockerfile: Dockerfile
-        command: npm dev
+        command: npm run dev
         container_name: frontend
         depends_on:
             - xtabu-be
